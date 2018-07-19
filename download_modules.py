@@ -24,9 +24,10 @@ def get_modules(script):
 				pass
 			else:
 				modules.append(line)
+get_modules(input("Enter Script: "))
+modules = list(set(modules))
 
 def main():
-	get_modules(input("Enter Script: "))
 	for module in modules:
 		try:
 			install(module)
