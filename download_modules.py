@@ -18,8 +18,12 @@ def get_modules(script):
 		lines = f.read().split("\n")
 	for line in lines:
 		if "import" in line:
-			line = line.split(" ")[1]
-			modules.append(line)
+			try:
+				line = line.split(" ")[1]
+			except:
+				pass
+			else:
+				modules.append(line)
 
 def main():
 	get_modules(input("Enter Script: "))
@@ -27,9 +31,9 @@ def main():
 		try:
 			install(module)
 		except:
-			print("[-] Modules Is Already Installed Or Not Found")
+			print("[-] Module Is Already Installed Or Not Found")
 	print("[+] Installation Done")
-	print("Script Will Cloe In 20 Sec")
+	print("Script Will Close In 20 Sec")
 	time.sleep(20)
 
 if __name__ == '__main__':
